@@ -13,7 +13,3 @@ This project utilizes the Retrieval-Augmented Generation (RAG) pipeline to creat
 - **E-commerce APIs**: Data collected from e-commerce platforms via APIs.
 - **Social Media**: Trends and preferences extracted using social media listening tools.
 
-### Prerequisites
-- Python 3.8+
-- Docker (optional for container deployment)
-
