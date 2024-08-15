@@ -1,12 +1,34 @@
 # Enhancing Gift Recommendatios Using RAG Pipeline
 
 ## Project Overview
-This project utilizes the Retrieval-Augmented Generation (RAG) pipeline to create a sophisticated gift recommendation system. By integrating dense retrieval with a sequence-to-sequence model, the system personalizes gift suggestions based on user input and trends captured from various data sources.
+The "Enhancing Gift Recommendations with RAG" project is a comprehensive system that combines the power of modern AI technologies with a user-friendly interface to deliver personalized gift recommendations. The project utilizes Flask for the backend, managing the logic and data processing, while React is employed for the front-end, ensuring a seamless and interactive user experience. This setup allows for efficient communication between the server and the user interface, making the recommendation process both fast and responsive.
 
-## Features
-- **Personalized Recommendations**: Generates gift suggestions tailored to individual preferences and occasions.
-- **Efficient Data Retrieval**: Leverages dense retrieval for fast and relevant document fetching.
-- **Scalable Architecture**: Designed to handle large datasets and high query volumes effectively.
+At the core of the system is a Retrieval-Augmented Generation (RAG) model that integrates human interactions to continuously refine and improve its recommendations. By leveraging Gemini for natural language processing and understanding, the system can engage users in meaningful dialogues, capturing nuanced preferences and contextual information that are critical for accurate gift suggestions. The human-in-the-loop approach not only helps in training the model but also ensures that the system remains adaptable to changing user needs and preferences over time.
+
+This combination of advanced AI, human interaction, and a robust technological stack results in a highly personalized and effective gift recommendation system, designed to enhance the gift-giving experience in a meaningful way.
+
+## Key Features
+- **Context-Aware Personalization:**
+
+Tailors suggestions based on relationship type and occasion.
+
+Dynamically adapts to user feedback and interaction history.
+
+- **Curated and Diverse Gift Dataset:**
+
+Specialized dataset with niche and artisanal products.
+
+Regularly updated to reflect current trends and seasonal variations.
+
+- **Intuitive User Interface:**
+
+User-friendly, responsive, and customizable UI.
+
+Users can refine recommendations based on budget, interests, and occasion 
+
+- **Precision-Driven Metrics:**
+
+Ensures recommendations are relevant to the context and user preferences.
 
 ## Data Sources
 - **Kaggle Dataset**: Utilizes a comprehensive dataset from Kaggle featuring gift items with associated metadata.
@@ -31,9 +53,9 @@ This will create a directory named 'gift' containing your virtual environment.
 ### Step 4: Activate the Virtual Environment
 1. Activate the virtual environment with the appropriate command for your operating system:
 
-   macOS/Linux: source bin/activate
+   **macOS/Linux:** source bin/activate
 
-   Windows: .\Scripts\activate
+   **Windows:** .\Scripts\activate
 
    After activation, your terminal prompt should reflect that the virtual environment is active, usually by displaying '(gift)' at the start of the prompt.
 
