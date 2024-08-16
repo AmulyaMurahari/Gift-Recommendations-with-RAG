@@ -30,9 +30,6 @@ Users can refine recommendations based on budget, interests, and occasion
 
 Ensures recommendations are relevant to the context and user preferences.
 
-## Data Sources
-- **Kaggle Dataset**: Utilizes a comprehensive dataset from Kaggle featuring gift items with associated metadata.
-
 ## Set-up Instructions:
 ### Step 1: Create a Virtual Environment
 1. Open your terminal or command prompt.
@@ -67,6 +64,10 @@ This will create a directory named 'gift' containing your virtual environment.
 
 The React application should now be running, and you can view it in your browser at 'http://localhost:3000'.
 
+## Data Sources
+- **Kaggle Dataset**: Utilizes a comprehensive dataset from Kaggle featuring gift items with associated metadata.
+
+  
 ## Dataset Information
 
 Due to the size of the dataset, it has been hosted externally. You can download the complete dataset from the following link: https://drive.google.com/drive/folders/1BZFqwr6BQ-8sEdthmR2g2BcsbKosYyei
