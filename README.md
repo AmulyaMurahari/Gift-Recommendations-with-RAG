@@ -1,4 +1,4 @@
-# Enhancing Gift Recommendatios Using RAG Pipeline
+# Enhancing Gift Recommendations Using RAG Pipeline
 
 ## Project Overview
 
