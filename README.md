@@ -1,11 +1,158 @@
 # Enhancing Gift Recommendatios Using RAG Pipeline
 
 ## Project Overview
-The "Enhancing Gift Recommendations with RAG" project is a comprehensive system that combines the power of modern AI technologies with a user-friendly interface to deliver personalized gift recommendations. The project utilizes Flask for the backend, managing the logic and data processing, while React is employed for the front-end, ensuring a seamless and interactive user experience. This setup allows for efficient communication between the server and the user interface, making the recommendation process both fast and responsive.
 
-At the core of the system is a Retrieval-Augmented Generation (RAG) model that integrates human interactions to continuously refine and improve its recommendations. By leveraging Gemini for natural language processing and understanding, the system can engage users in meaningful dialogues, capturing nuanced preferences and contextual information that are critical for accurate gift suggestions. The human-in-the-loop approach not only helps in training the model but also ensures that the system remains adaptable to changing user needs and preferences over time.
+This project provides an AI-based gift suggestion tool, which includes a backend API for gift recommendations and a frontend for user interaction. The app is containerized using Docker, and this documentation provides details on how to run the app locally and in production.
+You can view our model here: http://34.219.62.77:3000/
 
-This combination of advanced AI, human interaction, and a robust technological stack results in a highly personalized and effective gift recommendation system, designed to enhance the gift-giving experience in a meaningful way.
+# Set-up Instructions:
+
+## Prerequisites
+
+- [Docker](https://www.docker.com/) (version 3.8 or above)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- Access to the internet to pull necessary Docker images
+
+## Services Overview
+
+- **Backend**: Flask-based API to handle gift suggestion requests.
+- **Frontend**: React-based user interface for interacting with the API.
+- **Reverse Proxy**: (Optional for production) NGINX reverse proxy for managing traffic between the frontend and backend.
+
+## Running the Application Locally
+
+### Step 1: Clone the Repository
+
+First, clone the repository:
+
+ ⁠bash
+git clone https://github.com/your-repo/gift-suggestion-app.git
+cd gift-suggestion-app
+
+
+### Step 2: Configure Local Docker Setup
+
+You need to modify the `docker-compose.yml` file to run the app locally. Instead of using pre-built images, you'll need to specify the local paths for the Dockerfiles in both `backend` and `frontend` services.
+
+1. **Backend**: Update the `backend` service in the `docker-compose.yml` file:
+     ⁠yaml
+    services:
+      backend:
+        build: ./backend  # Use local path to the Dockerfile
+        container_name: gift-be
+        ports:
+          - "5000:5000"
+        environment:
+          - FLASK_ENV=development
+    
+
+⁠ 2. **Frontend**: Similarly, update the `frontend` service:
+     ⁠yaml
+    services:
+      frontend:
+        build: ./frontend  # Use local path to the Dockerfile
+        container_name: gift-fe
+        ports:
+          - "3000:3000"
+        depends_on:
+          - backend
+    
+
+### Step 3: Build and Run the Containers Locally
+
+Run the following command to build and start the containers locally:
+
+ ⁠bash
+docker-compose up --build
+
+
+⁠ - The **Backend** service will be accessible at `http://localhost:5000`.
+- The **Frontend** service will be accessible at `http://localhost:3000`.
+
+### Step 4: Verify the Application
+
+Once the containers are up and running, visit `http://localhost:3000` in your browser to interact with the frontend. The frontend will communicate with the backend API running on `http://localhost:5000`.
+
+
+## Running the Application in Production
+
+### Step 1: Pull Pre-Built Docker Images
+
+For a production environment (such as on AWS EC2 or another hosting platform), you can pull the pre-built Docker images from Docker Hub:
+
+ ⁠yaml
+services:
+  backend:
+    image: namithajc/gift-be:latest
+    container_name: gift-be
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+
+  frontend:
+    image: namithajc/gift-fe:latest
+    container_name: gift-fe
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+
+### Step 2: Use NGINX Reverse Proxy (Optional)
+
+For production hosting, you can use an NGINX reverse proxy to manage traffic between the frontend and backend. The reverse proxy will forward incoming HTTP requests to the appropriate service.
+
+ ⁠yaml
+  reverse-proxy:
+    image: nginx:latest
+    container_name: nginx-reverse-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/nginx/certs
+    depends_on:
+      - frontend
+      - backend
+
+
+### Step 3: Run the Containers in Production
+
+To run the app in production mode:
+
+ ⁠bash
+docker-compose up -d
+
+
+⁠ This will start the containers in detached mode (running in the background), and you can access your services as follows:
+- The **Frontend** service will be accessible at `http://<your-production-server>:80` (via NGINX).
+- The **Backend** service will be handled via NGINX and will forward requests internally.
+
+### Step 4: Monitor the Logs
+
+To view the logs for troubleshooting or monitoring:
+
+ ⁠bash
+docker-compose logs -f
+
+
+## Stopping the Application
+
+To stop the application:
+
+ ⁠bash
+docker-compose down
+"```"
+
+This will stop and remove the running containers.
+
+## Additional Notes
+
+•⁠  ⁠For local development, remember to update the ⁠ docker-compose.yml ⁠ file to use local Dockerfile paths instead of pre-built images.
+•⁠  ⁠The reverse proxy section of the ⁠ docker-compose.yml ⁠ is *only required for production* (e.g., when hosting on AWS EC2 or similar).
+
 
 ## Key Features
 - **Context-Aware Personalization:**
@@ -30,40 +177,6 @@ Users can refine recommendations based on budget, interests, and occasion
 
 Ensures recommendations are relevant to the context and user preferences.
 
-## Set-up Instructions:
-### Step 1: Create a Virtual Environment
-1. Open your terminal or command prompt.
-2. Run the following command to create a virtual environment named gift: python -m venv gift
-
-This will create a directory named 'gift' containing your virtual environment.
-
-### Step 2: Download the files from GitHub and Copy All Files from the Zip
-1. Download all the required files or clone the project from the github repo.
-2. Extract the contents of your zip file.
-3. Copy all the extracted files into the 'gift' directory.
-
-### Step 3: Navigate to the 'gift' Directory
-1. Change your current directory to the newly created 'gift' virtual environment by running: cd gift
-
-### Step 4: Activate the Virtual Environment
-1. Activate the virtual environment with the appropriate command for your operating system:
-
-   **macOS/Linux:** source bin/activate
-
-   **Windows:** .\Scripts\activate
-
-   After activation, your terminal prompt should reflect that the virtual environment is active, usually by displaying '(gift)' at the start of the prompt.
-
-### Step 5: Install Required Packages
-1. Install all necessary Python packages listed in the 'requirements.txt' file by running: pip install -r requirements.txt
-
-### Step 6: Run the React Application
-1. Navigate to your React project directory (if it's not already in the 'gift' directory, move it there).
-2. Install the required Node.js packages by running: npm install
-3. Start the React application using: npm start
-
-The React application should now be running, and you can view it in your browser at 'http://localhost:3000'.
-
 ## Data Sources
 - **Kaggle Dataset**: Utilizes a comprehensive dataset from Kaggle featuring gift items with associated metadata.
 
@@ -74,3 +187,23 @@ Due to the size of the dataset, it has been hosted externally. You can download 
 
 Below is a sample of our dataset:![image](https://github.com/user-attachments/assets/8182ae96-da35-440c-83af-e21ad2c9cc69)
 
+## YouTube Link
+
+YouTube link of our project walk through and our project demo: 
+
+## Contact Us:
+
+**Amulya Murahari** 
+GitHub: https://github.com/AmulyaMurahari
+LinkedIn: https://www.linkedin.com/in/amulyamurahari/
+Email: murahari.a@northeastern.edu
+
+**Namitha J C**
+GitHub: https://github.com/Njc27
+LinkedIn: https://www.linkedin.com/in/namitha-j-c-9b478416b/
+Email: jc.n@northeastern.edu
+
+**Sinchana Kumara**
+GitHub: https://github.com/SinchanaKumara
+LinkedIn: https://www.linkedin.com/in/sinchanak
+Email: kumara.s@northeastern.edu
