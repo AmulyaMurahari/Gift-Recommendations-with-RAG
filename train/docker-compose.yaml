@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ../falsk-be  # Build from the local directory named 'backend'
+    container_name: gift-be
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=production
+
+  frontend:
+    build: ../gift-suggestions  # Build from the local directory named 'frontend'
+    container_name: gift-fe
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  # reverse-proxy:
+  #   image: nginx:latest
+  #   container_name: nginx-reverse-proxy
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #     - ./certs:/etc/nginx/certs
+  #   depends_on:
+  #     - frontend
+  #     - backend

@@ -1,0 +1,27 @@
+# Ignore Python virtual environment directories
+**/venv
+**/env
+**/.env
+
+# Ignore Python bytecode files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore directories that are not needed in the Docker image
+Include
+Scripts
+bin
+pyvenv.cfg
+
+# Ignore IDE/editor specific files
+*.idea
+*.vscode
+*.project
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Cabin:ital,wght@0,400..700;1,400..700&family=Fjalla+One&family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: "Montserrat", sans-serif;
+}
+
+.chat-app {
+  margin: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.chat-history {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chat-message.user {
+  justify-content: flex-end;
+  /* Aligns user message to the right */
+}
+
+.chat-message.ai {
+  justify-content: flex-start; /* Aligns AI message to the left */
+  text-align: justify;
+  width: 1000px;
+  align-items: flex-start;
+}
+
+.chat-message.user .message-content {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 60%;
+}
+
+.chat-message.ai .message-content {
+  background-color: #f0f0f0;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 60%;
+}
+
+.ai-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+form {
+  display: flex;
+  position: fixed;
+  width:calc(100% - 40px);
+  margin: 10px;
+  bottom: 0;
+  gap: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  width: calc(90% - 10px);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
