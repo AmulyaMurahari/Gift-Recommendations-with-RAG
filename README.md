@@ -67,4 +67,11 @@ This will create a directory named 'gift' containing your virtual environment.
 2. Install the required Node.js packages by running: npm install
 3. Start the React application using: npm start
 
-Your React application should now be running, and you can view it in your browser at 'http://localhost:3000'.
+The React application should now be running, and you can view it in your browser at 'http://localhost:3000'.
+
+## Dataset Information
+
+Due to the size of the dataset, it has been hosted externally. You can download the complete dataset from the following link: https://drive.google.com/drive/folders/1BZFqwr6BQ-8sEdthmR2g2BcsbKosYyei
+
+Below is a sample of our dataset:![image](https://github.com/user-attachments/assets/8182ae96-da35-440c-83af-e21ad2c9cc69)
+
