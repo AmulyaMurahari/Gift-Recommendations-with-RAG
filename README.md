@@ -32,8 +32,6 @@ Ensures recommendations are relevant to the context and user preferences.
 
 ## Data Sources
 - **Kaggle Dataset**: Utilizes a comprehensive dataset from Kaggle featuring gift items with associated metadata.
-- **E-commerce APIs**: Data collected from e-commerce platforms via APIs.
-- **Social Media**: Trends and preferences extracted using social media listening tools.
 
 ## Set-up Instructions:
 ### Step 1: Create a Virtual Environment
